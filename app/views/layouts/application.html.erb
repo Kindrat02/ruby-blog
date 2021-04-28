@@ -5,12 +5,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-
     <% if flash[:notice] %>
       <div class="notification is-primary global-notification">
         <p class="notice"><%= notice %></p>
@@ -22,6 +22,30 @@
         <p class="alert"><%= alert %></p>
       </div>
     <% end %>
+
+    <nav class="navbar is-dark">
+      <div class="navbar-brand">
+        <%= link_to root_path, class: "navbar-item" do %>
+          <h1 class="title is-4 has-text-white">Blog</h1>
+        <% end %>
+        <div class="navbar-burger burger" data-target="navbarExample">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div id="navbarExample" class="navbar-menu">
+        <div class="navbar-end">
+          <div class="field is-grouped">
+            <p class="control">
+              <%= link_to 'New Post', new_article_path, class: "button is-inverted" %>
+            </p>
+            <p class="control">Sign Up</p>
+          </div>
+        </div>
+      </div>
+    </nav>
 
     <%= yield %>
   </body>

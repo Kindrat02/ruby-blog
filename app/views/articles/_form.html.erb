@@ -1,26 +1,11 @@
-<%= form_with model: article do |form| %>
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-    <% article.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-
-  <div>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %><br>
-    <% article.errors.full_messages_for(:body).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-
-  <div>
-    <%= form.label :status %><br>
-    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+<%= simple_form_for(@article) do |article| %>
+<div class="field">
+    <div class="control">
+      <%= article.input :title, label: "Make post here", input_html: { class: "input"},
+      wrapper: false, label_html: {class: "label"}, placeholder: "Write post`s title here" %>
+      <%= article.input :body, input_html: { class: "textarea"},
+      wrapper: false, label_html: {class: "label"}, placeholder: "Write post`s text here" %>
+    </div>
+</div>
+<%= article.button :submit, class: "button is-info" %>
 <% end %>
