@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @articles = Article.all.order("created_at DESC")
     @article = Article.new
@@ -11,15 +13,15 @@ class ArticlesController < ApplicationController
 
 
   def new
-    @article = Article.new
+    @article = current_user.article.build
   end
 
 
   def create
-    @article = Article.new(article_params)
+    @article = current_user.article.build(article_params)
 
     if @article.save
-      redirect_to @article
+      redirect_to root_path
     else
       render :new
     end
@@ -52,7 +54,7 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      params.require(:article).permit(:title, :body, :status)
+      params.require(:article).permit(:title, :body)
     end
 
 end
