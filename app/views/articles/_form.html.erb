@@ -1,11 +1,12 @@
-<%= simple_form_for(@article) do |article| %>
+
+<%= simple_form_for(Article.new) do |article| %>
 <div class="field">
     <div class="control">
-      <%= article.input :title, label: "Make post here", input_html: { class: "input"},
+      <%= article.input :title, label: "Make article here", input_html: { class: "input"},
       wrapper: false, label_html: {class: "label"}, placeholder: "Write post`s title here" %>
       <%= article.input :body, input_html: { class: "textarea"},
       wrapper: false, label_html: {class: "label"}, placeholder: "Write post`s text here" %>
     </div>
-</div>
-<%= article.button :submit, class: "button is-link" %>
+  </div>
+  <%= article.button :submit, class: "button is-link" %>
 <% end %>

@@ -14,3 +14,12 @@
  *= require_self
  */
  @import "bulma";
+
+ .image {
+  img {
+    border-radius: 50%;
+  }
+ }
+ .notification:not(:last-child) {
+  margin-bottom: 0;
+ }

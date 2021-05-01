@@ -25,7 +25,7 @@
 
     <nav class="navbar is-link">
       <div class="navbar-brand">
-        <%= link_to root_path, class: "navbar-item" do %>
+        <%= link_to unauthenticated_root_path, class: "navbar-item" do %>
           <h1 class="title is-4 has-text-white">Blog</h1>
         <% end %>
         <div class="navbar-burger burger" data-target="navbarExample">
@@ -38,9 +38,6 @@
       <div id="navbarExample" class="navbar-menu">
         <div class="navbar-end">
           <div class="field is-grouped">
-            <p class="control">
-              <%= link_to 'New Post', new_article_path, class: "button is-inverted" %>
-            </p>
             <% if user_signed_in?%>
               <p class="control"><%= link_to current_user.name, edit_user_registration_path, class: "button is-link" %></p>
               <p><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "button is-link" %></p>

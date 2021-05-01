@@ -1,12 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
-  def index
-    @articles = Article.all.order("created_at DESC")
-    @article = Article.new
-  end
-
-
   def show
     @article = Article.find(params[:id])
   end
@@ -21,7 +15,7 @@ class ArticlesController < ApplicationController
     @article = current_user.article.build(article_params)
 
     if @article.save
-      redirect_to root_path
+      redirect_to authenticated_root_path
     else
       render :new
     end
@@ -37,7 +31,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
 
     if @article.update(article_params)
-      redirect_to @article
+      redirect_to authenticated_root_path
     else
       render :edit
     end
@@ -48,7 +42,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.destroy
 
-    redirect_to root_path
+    redirect_to authenticated_root_path
   end
 
 
