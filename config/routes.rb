@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  post 'search', to: "users#search"
 
   devise_for :users, :controllers => { registrations: 'registrations'}
 

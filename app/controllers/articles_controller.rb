@@ -1,10 +1,11 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  # before_action :authenticate_user!, only: []
+  # before_action :set_story!, only: [:edit, :update, :destroy]
+  #Подивитися на авторизацію
 
   def show
     @article = Article.find(params[:id])
   end
-
 
   def new
     @article = current_user.article.build
@@ -50,5 +51,4 @@ class ArticlesController < ApplicationController
     def article_params
       params.require(:article).permit(:title, :body)
     end
-
 end

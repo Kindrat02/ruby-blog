@@ -1,10 +1,14 @@
 <div class="column is-half">
-  <div class="field">
+
+  <form class="field has-addons is-grouped is-grouped-centered" action="/search" method="post">
     <div class="control">
-      <%= label: "Edit article title here", input_html: { class: "input"},
-      wrapper: false, label_html: {class: "label"}, placeholder: "Search for articles here" %>
+      <input class="input" name="title" type="text" placeholder="Find a posts">
+      <input class="input" name="id" type="hidden" value=<%=@user.id%>>
     </div>
-  </div>
+    <div class="control">
+      <button type="submit" class="button is-link">Search</<button>
+    </div>
+  </form>
 
   <% if current_user.username == @user.username %>
   <article class="media box">
@@ -28,7 +32,7 @@
             <nav class="level">
               <div class="level-left is-mobile">
 
-                <%= link_to article, class: "level-item" do %>
+                <%= link_to article_comments_path(article), class: "level-item" do %>
                   <span class="icon">
                     <i class="fa fa-comment" aria-hidden="true"></i>
                   </span>
