@@ -3,25 +3,27 @@
 		<p class="panel-heading">Who to Follow</p>
 
 	<% @users.each do | user | %>
-	<div class="panel-block">
-		<%= link_to user_path(user) do %>
-		<article class="media">
-			<div class="media-left">
-				<figure class="image is-32x32">
-					<%= gravatar_image_tag(user.email, size: 64, alt: user.name) %>
-				</figure>
+		<% if user.username != current_user.username %>
+			<div class="panel-block">
+				<%= link_to user_path(user) do %>
+				<article class="media">
+					<div class="media-left">
+						<figure class="image is-32x32">
+							<%= gravatar_image_tag(user.email, size: 64, alt: user.name) %>
+						</figure>
+					</div>
+					<div class="media-content">
+						<div class="content">
+							<p>
+								<strong><%= user.name %></strong><br/>
+								<small><%= '@' + user.username %></small>
+							</p>
+						</div>
+					</div>
+				</article>
+				<% end %>
 			</div>
-			<div class="media-content">
-				<div class="content">
-					<p>
-						<strong><%= user.name %></strong><br/>
-						<small><%= '@' + user.username %></small>
-					</p>
-				</div>
-			</div>
-		</article>
 		<% end %>
-	</div>
 	<% end %>
 	</nav>
 </div>

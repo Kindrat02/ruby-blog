@@ -8,6 +8,9 @@
             <small><%= '@' + @article.user.username %></small><br>
             <p><%= @article.title %></p>
             <p><%= @article.body %></p>
+            <% if @article.image.attached? %>
+              <%= image_tag @article.image, style: "width: 100%; display: block" %>
+            <% end %>
           </div>
 
           <nav class="level">
