@@ -19,22 +19,6 @@ class CommentsController < ApplicationController
     redirect_to article_comments_path(@article)
   end
 
-  def edit
-    @comment = Comment.find(params[:id])
-    @article = Article.find(params[:article_id])
-  end
-
-  def update
-    @article = Article.find(params[:article_id])
-    @comment = Comment.find(params[:id])
-
-    if @article.update(article_params)
-      redirect_to article_comments_path()
-    else
-      render :edit
-    end
-  end
-
   private
     def comment_params
       params.require(:comment).permit(:commenter, :body)
