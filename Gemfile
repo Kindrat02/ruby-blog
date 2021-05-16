@@ -51,6 +51,10 @@ group :development do
   gem 'will_paginate', '~> 3.3'
 end
 
+group :production do
+  gem 'will_paginate', '~> 3.3'
+end
+
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
