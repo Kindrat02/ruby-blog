@@ -42,7 +42,9 @@
             <div class="content">
               <strong><%= article.user.name %></strong><br>
               <small><%= '@' + article.user.username %></small><br>
-              <small><%= 'Category:' + article.category %></small><br>
+              <% unless article.category.nil? %>
+                <small><%= 'Category:' + article.category %></small><br>
+              <% end %>
               <strong><p style="text-align:center;"><%= article.title %></p></strong>
               <p><%= article.body %></p>
               <% if article.image.attached? %>
