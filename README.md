@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+В цьому проекті реалізував:
+1. Getting started
+2. Автентифікація різними користувачами
+3. Пагінація (пагінація постів на сторінках в юзера)
+4. Завантаження картинок
+5. Розгортання на heroku (https://obscure-shelf-40314.herokuapp.com/)
+6. Авторизація (реалізована тільки через інтерфейс)
