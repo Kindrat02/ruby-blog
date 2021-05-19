@@ -5,6 +5,8 @@
       wrapper: false, label_html: {class: "label"}, placeholder: "Write post`s title here" %>
       <%= article.input :body, input_html: { class: "textarea"},
       wrapper: false, label_html: {class: "label"}, placeholder: "Write post`s text here" %>
+      <%= article.input_field :category, :collection => ['Art','Sport', 'Science', 'Education', 'Music', 'Relax'],
+      label: 'Choose category', label_html: {class: "label"}, :selected => 'Art', as: :select%>
       <%= article.input :image, as: :file %>
     </div>
   </div>

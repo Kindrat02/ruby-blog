@@ -1,5 +1,22 @@
 <div class="column is-half">
 
+  <form class="field has-addons is-grouped is-grouped-centered" action="/filter" method="post">
+    <div class="control">
+      <select name="category">
+        <option value="Science">Science</option>
+        <option value="Sport">Sport</option>
+        <option value="Art">Art</option>
+        <option value="Education">Education</option>
+        <option value="Music">Music</option>
+        <option value="Relax">Relax</option>
+      </select>
+      <input class="input" name="id" type="hidden" value=<%=@user.id%>>
+    </div>
+    <div class="control">
+      <button type="submit" class="button is-link">Filter</<button>
+    </div>
+  </form>
+
   <form class="field has-addons is-grouped is-grouped-centered" action="/search" method="post">
     <div class="control">
       <input class="input" name="title" type="text" placeholder="Find a posts">
@@ -25,7 +42,8 @@
             <div class="content">
               <strong><%= article.user.name %></strong><br>
               <small><%= '@' + article.user.username %></small><br>
-              <p><%= article.title %></p>
+              <small><%= 'Category:' + article.category %></small><br>
+              <strong><p style="text-align:center;"><%= article.title %></p></strong>
               <p><%= article.body %></p>
               <% if article.image.attached? %>
                 <%= image_tag article.image, style: "width: 100%; display: block" %>

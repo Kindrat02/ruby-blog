@@ -22,4 +22,12 @@ skip_before_action :verify_authenticity_token
 
     render template: 'users/index'
   end
+
+  def filter
+    @articles = Article.where("category LIKE ? AND user_id = ?", params[:category], params[:id]).order("created_at DESC").paginate(:page => params[:page], :per_page=>3)
+    @user = User.find(params[:id])
+    @users = User.all
+
+    render template: 'users/index'
+  end
 end
